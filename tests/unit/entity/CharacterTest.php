@@ -1,5 +1,5 @@
 <?php
-
+// vendor\bin\phpunit tests\unit\entity\CharacterTest.php
 namespace App\tests\unit\entity;
 
 use App\Entity\Character;
@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 use App\Entity\Combat;
 use App\Service\Randomizer;
 
-class characteretest extends TestCase {
+class CharacterTest extends TestCase {
 
     //  Test 1 : Création d’un personnage avec des stats précises
     public function testCharacterCreation() {
@@ -56,4 +56,5 @@ class characteretest extends TestCase {
         $combat = new Combat($randomizer);
         $combat->calculateDamage2(...);
     }
+
 }

@@ -11,7 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'app:combat', //php bin/console app:combat
-    description: 'Add a short description for your command',
+    description: 'Lance un combat tour par tour entre un héros et un gobelin',
 )]
 class CombatCommand extends Command
 {
@@ -69,7 +69,7 @@ class CombatCommand extends Command
         $damageToEnemy = max((($character->getAttack() - $enemyDef) * $random) + 1, 1);
         // $damageToEnemy = max(($character->getAttack() - $enemyDef) * (rand(80, 120) / 100), 1);
         $enemyHp -= $damageToEnemy; 
-        $output->writeln(" {$character->getName()} inflige " . $damageToEnemy . " dégâts du Goblin (La vie du hero restant : " . max(0, $enemyHp) . ")");
+        $output->writeln(" {$character->getName()} inflige " . $damageToEnemy . " dégâts du 👹 Goblin (La vie du hero restant : " . max(0, $enemyHp) . ")");
 
         if($enemyHp <= 0){
             break;
@@ -77,7 +77,7 @@ class CombatCommand extends Command
         // Enemy attacks
         $damageToPlayer = max(($enemyAtk - $character->getDefense()) * (rand(80, 120) / 100), 1);
         $playerHp -= $damageToPlayer;
-        $output->writeln("Goblin inflige " . (int)$damageToPlayer . " dégâts à {$character->getName()} (La vie du Goblin restant : " . max(0, $playerHp) . ")");        $output->writeln("");
+        $output->writeln("👹 Goblin inflige " . (int)$damageToPlayer . " dégâts à {$character->getName()} (La vie du Goblin restant : " . max(0, $playerHp) . ")");        $output->writeln("");
         $turn++;
         }
 
